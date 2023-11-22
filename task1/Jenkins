@@ -1,0 +1,43 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Build') {
+            steps {
+                // Add build steps here
+                // For example:
+                sh 'echo "Building the project"'
+                sh 'mvn clean install' // Assuming Maven is used for building
+            }
+        }
+        stage('Test') {
+            steps {
+                // Add test steps here
+                // For example:
+                sh 'echo "Running tests"'
+                sh 'mvn test' // Assuming Maven is used for running tests
+            }
+        }
+        stage('Deploy') {
+            steps {
+                // Add deployment steps here
+                // For example:
+                sh 'echo "Deploying the application"'
+                // Add deployment commands or scripts
+            }
+        }
+    }
+    
+    post {
+        success {
+            // Actions to perform if the pipeline is successful
+            // For example, send a notification
+            echo 'Pipeline succeeded! Sending notification...'
+        }
+        failure {
+            // Actions to perform if the pipeline fails
+            // For example, send a notification or clean up resources
+            echo 'Pipeline failed! Sending notification...'
+        }
+    }
+}
