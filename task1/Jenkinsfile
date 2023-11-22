@@ -7,16 +7,14 @@ pipeline {
                 // Add build steps here
                 // For example:
                 sh 'echo "Building the project"'
-                sh 'mvn clean install' // Assuming Maven is used for building
-            }
+                            }
         }
         stage('Test') {
             steps {
                 // Add test steps here
                 // For example:
                 sh 'echo "Running tests"'
-                sh 'mvn test' // Assuming Maven is used for running tests
-            }
+                            }
         }
         stage('Deploy') {
             steps {
